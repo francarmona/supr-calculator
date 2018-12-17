@@ -1,15 +1,21 @@
 <div class="container">
   <h1>Task D - Supr-Calculator</h1>
-  <div>
-    <input disabled [ngClass]="{'no-valid':errorMessage}" [(ngModel)]="screenValue">
-    <div>
-      <button class="btn" (click)="clear()">CLEAR</button>
-      <app-operator-button *ngFor="let operator of operators" [value]="operator" (select)="onSelect($event)"></app-operator-button>
+  <div class="calculator-wrapper">
+    <div class="row">
+      <div class="class-sm-12">
+        <input disabled [ngClass]="{'no-valid':!validExpression}" [(ngModel)]="screenValue">
+      </div>
     </div>
-    <div>
-      <app-operand-button *ngFor="let operand of operands" [value]="operand" (select)="onSelect($event)"></app-operand-button>
-      <app-operand-button [value]="rand | async" (select)="onSelect($event)"></app-operand-button>
+    <div class="row">
+      <div class="col-lg-2 col-sm-3">
+        <button class="btn btn-calculator" (click)="clear()">CLEAR</button>
+      </div>
+      <app-operator-button class="col-lg-2 col-sm-3" *ngFor="let operator of operators" [value]="operator" (select)="onSelect($event)"></app-operator-button>
+      <app-operand-button class="col-lg-2 col-sm-3" *ngFor="let operand of operands" [value]="operand" (select)="onSelect($event)"></app-operand-button>
+      <app-operand-button class="col-lg-2 col-sm-3" label="RAND" [value]="rand | async" (click)="generateRandom()" (select)="onSelect($event)"></app-operand-button>
+      <div class="col-lg-10 col-sm-3">
+        <button [disabled]="!screenValue || !validExpression" class="btn btn-calculator" (click)="result()">=</button>
+      </div>
     </div>
-
   </div>
 </div>

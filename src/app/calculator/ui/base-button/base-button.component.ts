@@ -9,13 +9,14 @@ import {Button} from '../../button';
 export class BaseButtonComponent {
 
   @Input() value: any;
+  @Input() label: any;
   @Output() select = new EventEmitter<Button>();
 
   type: ButtonType = ButtonType.Operand;
   constructor() { }
 
   selectButton() {
-    this.select.emit({value: this.value, type: this.type});
+    this.select.emit({value: this.value, type: this.type, label: this.label || this.value});
   }
 
 }
