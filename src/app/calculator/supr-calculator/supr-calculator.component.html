@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Task D - Supr-Calculator</h1>
+  <div>
+    <input disabled [ngClass]="{'no-valid':errorMessage}" [(ngModel)]="screenValue">
+    <div>
+      <button class="btn" (click)="clear()">CLEAR</button>
+      <app-operator-button *ngFor="let operator of operators" [value]="operator" (select)="onSelect($event)"></app-operator-button>
+    </div>
+    <div>
+      <app-operand-button *ngFor="let operand of operands" [value]="operand" (select)="onSelect($event)"></app-operand-button>
+      <app-operand-button [value]="rand | async" (select)="onSelect($event)"></app-operand-button>
+    </div>
+
+  </div>
+</div>

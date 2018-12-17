@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {MathExpressionService} from '../../core/math-expression.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent {
 
   errorMessage: string;
   expressions: {expression, result}[] = [];
 
   constructor(private mathExpression: MathExpressionService) { }
 
-  ngOnInit() {
-  }
-
   onKey(value: string) {
-    console.log(value);
     if (this.mathExpression.valid(value)) {
       this.errorMessage = '';
       this.pushLatest(value);
