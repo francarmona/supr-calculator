@@ -1,0 +1,16 @@
+
+
+<div class="main-wrapper">
+  <h1>Task C - Calculator</h1>
+  <label for="expression">
+    Expression
+    <input id="expression" [ngClass]="{'no-valid':errorMessage}" (input)="onKey(expression.value)" #expression>
+  </label>
+  <span class="error">{{errorMessage}}</span>
+  <ul>
+    <li *ngFor="let expression of expressions">
+      <div><b>Expression:</b> {{expression.expression}}</div>
+      <div> <b>Value:</b> {{expression.result}}</div>
+    </li>
+  </ul>
+</div>

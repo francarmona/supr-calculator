@@ -1,0 +1,19 @@
+
+.main-wrapper {
+  margin: 50px;
+}
+.error {
+  color: red;
+}
+
+input {
+  margin: 0 .25rem;
+  min-width: 125px;
+  min-height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+input.no-valid {
+  border-left: 3px solid red;
+}

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MathExpressionService} from './core/math-expression.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,7 @@ import {MathExpressionService} from './core/math-expression.service';
 export class AppComponent implements OnInit {
   title = 'calculator';
 
-  constructor(private mathExpression: MathExpressionService) {}
+  constructor() {}
 
-  ngOnInit() {
-    console.log(this.mathExpression.valid('sin(30) + cos(20)'));
-
-    console.log(this.mathExpression.evaluate('+2'));
-  }
+  ngOnInit() {}
 }
